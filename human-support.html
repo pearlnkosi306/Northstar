@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Human Support | Northstar</title><link rel="stylesheet" href="../css/styles.css"><script src="../js/app.js"></script><script src="../js/support.js"></script></head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html"><span class="brand-mark">N</span><span>Northstar Retail Co.</span></a><nav><a href="../index.html">Home</a><a href="order-status.html">Order Status</a><a href="returns.html">Returns &amp; Refunds</a><a href="stock.html">Stock Availability</a><a class="active" href="human-support.html">Human Support</a></nav></div></header>
+<main><section class="page-head"><div class="container"><div class="breadcrumb">Home / Human Support</div><h1>Human Support</h1><p class="lead">Use this pathway when your issue requires human review or cannot be safely resolved through the automated journeys.</p></div></section>
+<section class="container section"><div class="form-card">
+<div class="notice"><strong>Before escalating:</strong> the support dashboard, order status, returns and stock journeys are designed to resolve common questions without unnecessary handoff.</div>
+<label for="issueType">Issue type</label><select id="issueType"><option>Order issue</option><option>Return or refund issue</option><option>Damaged item</option><option>Delivery issue</option><option>Stock issue</option><option>Other</option></select>
+<label for="reference">Related reference number, if available</label><input id="reference" placeholder="Example: NS1001 or RET-48271">
+<label for="description">Describe the issue</label><textarea id="description" placeholder="Explain what happened and what you need help with."></textarea>
+<button onclick="createSupportRequest()">Submit Support Request</button><div id="supportResult" class="section"></div>
+</div></section></main>
+<footer class="site-footer"><div class="container">Demonstration support request only. No external support system is connected.</div></footer>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{const p=new URLSearchParams(location.search).get("order");if(p)qs("#reference").value=p;});
+</script>
+</body></html>

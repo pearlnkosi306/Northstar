@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Returns & Refunds | Northstar</title><link rel="stylesheet" href="../css/styles.css"><script src="../data/demo-data.js"></script><script src="../js/app.js"></script><script src="../js/returns.js"></script></head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html"><span class="brand-mark">N</span><span>Northstar Retail Co.</span></a><nav><a href="../index.html">Home</a><a href="order-status.html">Order Status</a><a class="active" href="returns.html">Returns &amp; Refunds</a><a href="stock.html">Stock Availability</a><a href="human-support.html">Human Support</a></nav></div></header>
+<main><section class="page-head"><div class="container"><div class="breadcrumb">Home / Returns &amp; Refunds</div><h1>Returns &amp; Refunds</h1><p class="lead">Check eligibility, understand the return requirements and create a demonstration return request.</p></div></section>
+<section class="container section">
+<div id="returnLookup" class="form-card"><h2>Find your order</h2><p>Enter the order number for the item you want to return.</p><label for="returnOrder">Order number</label><input id="returnOrder" placeholder="Example: NS1001"><button onclick="findReturnOrder()">Find Order</button><div id="returnLookupResult" class="section"></div></div>
+<div id="orderSummary"></div>
+<div id="reasonSection" class="form-card hidden"><h2>Why are you returning the item?</h2><div class="choice-grid">
+<div class="choice"><input id="r1" type="radio" name="returnReason" value="changed"><label for="r1">I changed my mind</label></div>
+<div class="choice"><input id="r2" type="radio" name="returnReason" value="defective"><label for="r2">Item is defective</label></div>
+<div class="choice"><input id="r3" type="radio" name="returnReason" value="damaged"><label for="r3">Item arrived damaged</label></div>
+<div class="choice"><input id="r4" type="radio" name="returnReason" value="wrong"><label for="r4">Wrong item received</label></div>
+<div class="choice"><input id="r5" type="radio" name="returnReason" value="described"><label for="r5">Item is not as described</label></div>
+<div class="choice"><input id="r6" type="radio" name="returnReason" value="other"><label for="r6">Other</label></div>
+</div><button onclick="startReturn()">Check Eligibility</button><div id="eligibilityResult" class="section"></div></div>
+<div id="eligibilitySection" class="hidden"></div>
+</section></main>
+<footer class="site-footer"><div class="container">Demonstration policy: standard returns must be initiated within 30 days of recorded delivery.</div></footer>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{const p=new URLSearchParams(location.search).get("order");if(p){qs("#returnOrder").value=p;findReturnOrder();}});
+</script>
+</body></html>

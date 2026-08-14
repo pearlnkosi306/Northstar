@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Return Status | Northstar</title><link rel="stylesheet" href="../css/styles.css"><script src="../data/demo-data.js"></script><script src="../js/app.js"></script></head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html"><span class="brand-mark">N</span><span>Northstar Retail Co.</span></a><nav><a href="../index.html">Home</a><a href="order-status.html">Order Status</a><a class="active" href="returns.html">Returns &amp; Refunds</a><a href="stock.html">Stock Availability</a><a href="human-support.html">Human Support</a></nav></div></header>
+<main><section class="page-head"><div class="container"><div class="breadcrumb">Returns &amp; Refunds / Return Status</div><h1>Return Status</h1><p class="lead">Keep this reference while the return moves through the demonstration process.</p></div></section>
+<section class="container section"><div id="returnView"></div></section></main>
+<footer class="site-footer"><div class="container">Demonstration status only. No real return is being processed.</div></footer>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const r=load("nsReturn"),el=qs("#returnView");
+ if(!r){el.innerHTML='<div class="alert">No demonstration return request has been created yet. <a href="returns.html">Start a return</a>.</div>';return;}
+ el.innerHTML=`<div class="panel"><p class="eyebrow">Return Reference</p><h1>${esc(r.reference)}</h1>
+ <div class="kpi-grid"><div class="kpi"><span class="meta">Order</span><strong>${esc(r.order)}</strong></div><div class="kpi"><span class="meta">Reason</span><strong>${esc(returnReasons[r.reason]||r.reason)}</strong></div><div class="kpi"><span class="meta">Current status</span><strong>${esc(r.status)}</strong></div></div>
+ <div class="timeline">
+ <div class="timeline-item"><span class="dot current"></span><div><strong>Return Request Created</strong><div class="meta">Your demonstration request has been recorded.</div></div></div>
+ <div class="timeline-item"><span class="dot"></span><div><strong>Return Received</strong><div class="meta">The item must be returned before this stage can be completed.</div></div></div>
+ <div class="timeline-item"><span class="dot"></span><div><strong>Assessment</strong><div class="meta">The returned item would be assessed according to the applicable policy.</div></div></div>
+ <div class="timeline-item"><span class="dot"></span><div><strong>Refund Processing</strong><div class="meta">The refund would be processed after the applicable assessment.</div></div></div>
+ <div class="timeline-item"><span class="dot"></span><div><strong>Refund Completed</strong><div class="meta">Final demonstration status.</div></div></div>
+ </div>
+ <div class="notice"><strong>What happens next?</strong><br>Prepare the item using the return instructions and keep ${esc(r.reference)} for the demonstration journey.</div>
+ <div class="actions"><a class="button" href="return-instructions.html">View Return Instructions</a><a class="button secondary" href="../index.html">Return to Support Dashboard</a></div>
+ </div>`;
+});
+</script>
+</body></html>

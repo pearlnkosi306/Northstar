@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Stock Availability | Northstar</title><link rel="stylesheet" href="../css/styles.css"><script src="../data/demo-data.js"></script><script src="../js/app.js"></script><script src="../js/inventory.js"></script></head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html"><span class="brand-mark">N</span><span>Northstar Retail Co.</span></a><nav><a href="../index.html">Home</a><a href="order-status.html">Order Status</a><a href="returns.html">Returns &amp; Refunds</a><a class="active" href="stock.html">Stock Availability</a><a href="human-support.html">Human Support</a></nav></div></header>
+<main><section class="page-head"><div class="container"><div class="breadcrumb">Home / Stock Availability</div><h1>Stock Availability</h1><p class="lead">Tell us what you are looking for and we will show the relevant demonstration inventory.</p></div></section>
+<section class="container section"><div class="form-card"><h2>Find a product</h2><label for="product">Product</label><select id="product"><option>Northstar Runner</option><option>Northstar Classic Tee</option><option>Northstar Hoodie</option><option>Northstar Classic</option></select><label for="size">Size</label><select id="size"><option>Small</option><option>Medium</option><option>Large</option></select><button onclick="checkInventory()">Check Availability</button><div id="stockResult" class="section"></div></div></section></main>
+<footer class="site-footer"><div class="container">Inventory shown is simulated demonstration data.</div></footer>
+</body></html>

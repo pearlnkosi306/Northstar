@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Stock Notification | Northstar</title><link rel="stylesheet" href="../css/styles.css"><script src="../js/app.js"></script></head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html"><span class="brand-mark">N</span><span>Northstar Retail Co.</span></a><nav><a href="../index.html">Home</a><a href="order-status.html">Order Status</a><a href="returns.html">Returns &amp; Refunds</a><a class="active" href="stock.html">Stock Availability</a><a href="human-support.html">Human Support</a></nav></div></header>
+<main><section class="page-head"><div class="container"><div class="breadcrumb">Stock Availability / Notification</div><h1>Request a Stock Notification</h1><p class="lead">Tell us where to send a demonstration notification request.</p></div></section>
+<section class="container section"><div class="form-card">
+<label for="product">Product</label><input id="product">
+<label for="size">Size</label><input id="size">
+<label for="email">Email address</label><input id="email" type="email" placeholder="example@email.com">
+<button onclick="requestNotification()">Request Notification</button><div id="notificationResult" class="section"></div>
+</div></section></main>
+<footer class="site-footer"><div class="container">No real notification will be sent. This is a demonstration workflow.</div></footer>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{const p=new URLSearchParams(location.search);qs("#product").value=p.get("product")||"";qs("#size").value=p.get("size")||"";});
+function requestNotification(){
+ const product=qs("#product").value.trim(),size=qs("#size").value.trim(),email=qs("#email").value.trim(),result=qs("#notificationResult");
+ if(!product||!size||!email){result.innerHTML='<div class="alert">Please provide the product, size and email address to continue.</div>';return;}
+ const ref=makeRef("STK");
+ result.innerHTML=`<div class="success"><h2>Notification Request Created</h2><p>Your demonstration stock-notification request has been recorded.</p><p><strong>Product:</strong> ${esc(product)}<br><strong>Size:</strong> ${esc(size)}<br><strong>Email:</strong> ${esc(email)}<br><strong>Reference:</strong> ${ref}</p><p>In a live system, this request would be used to notify you when the selected item becomes available.</p><div class="actions"><a class="button" href="stock.html">Check Another Product</a><a class="button secondary" href="../index.html">Return to Support</a></div></div>`;
+}
+</script>
+</body></html>
